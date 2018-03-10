@@ -1,0 +1,18 @@
+{
+  "name": "mongo_file_upload",
+  "version": "1.0.0",
+  "description": "Upload any file to mongo database",
+  "main": "server.js",
+  "repository": "https://github.com/ratnani1996/mongo_file_upload.git",
+  "author": "ratnani1996 <himanshuratnani1996@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "gridfs-stream": "^1.1.1",
+    "mongoose": "^5.0.9",
+    "multer": "^1.3.0",
+    "multer-gridfs-storage": "^3.0.0"
+  }
+}
