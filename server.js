@@ -76,6 +76,25 @@ app.get('/files', function(req, res){
     })
 })
 
+//route to get the specific file
+//display single file object
+app.get('/files/:filename' , (req, res)=>{
+    gfs.files.findOne({filename : req.params.filename}, (err, files)=>{
+        if(!files || files.length == 0){
+            return res.status(404).json({err : 'File not found'})
+        }
+        else{
+            return res.json(files);
+        }
+    })
+})
+
+//route to get /image:filename
+//display single image
+app.get('/image/:filename', (req, res)=>{
+
+})
+
 
 app.listen(3000, ()=>{
     console.log(`Listening to port 3000`);
