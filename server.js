@@ -92,7 +92,22 @@ app.get('/files/:filename' , (req, res)=>{
 //route to get /image:filename
 //display single image
 app.get('/image/:filename', (req, res)=>{
-
+    gfs.files.findOne({filename : req.params.filename}, (err, files)=>{
+        if(!files || files.length == 0){
+            return res.status(404).json({err : 'File not found'})
+        }
+        else{
+            if(files.contentType == 'image/png' || files.contentType == 'image/jpg' || files.contentType == 'image/jpeg'){
+                var readstream = gfs.createReadStream(files.filename);
+                readstream.pipe(res);
+            }
+            else{
+                return res.status(404).json({
+                    err : 'No image file'
+                })
+            }
+        }
+    })
 })
 
 
