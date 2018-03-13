@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 
 // Mongo URI
 // const mongoURI = 'mongodb://brad:brad@ds257838.mlab.com:57838/mongouploads';
-const mongoURI = `mongodb://localhost:27017/MongoFileUploads`
+const mongoURI = `mongodb://ratnani1996:123456@ds157538.mlab.com:57538/mongoupload`
 
 // Create mongo connection
 const conn = mongoose.createConnection(mongoURI);
@@ -27,6 +27,7 @@ let gfs;
 
 conn.once('open', () => {
   // Init stream
+  console.log(`Connection to the database up and running`)
   gfs = Grid(conn.db, mongoose.mongo);
   gfs.collection('uploads');
 });
