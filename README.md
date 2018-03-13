@@ -10,8 +10,13 @@ This is an example application to show you how to upload images or other other f
 With [yarn](https://yarnpkg.com/en/) installed, run
 
 ```
-$ yarn install || yarn
+$ yarn install
+```
+## Usage
+
+```js
 $ yarn start
+This will start your server at port 3000
 ```
 
 ## License
