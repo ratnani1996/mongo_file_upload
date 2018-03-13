@@ -2,46 +2,19 @@
 
 > Upload any file to mongo database
 
-background details relevant to understanding what this module does
+This is an example application to show you how to upload images or other other file format files to mongodb database.
 
-## Usage
-
-```js
-var mongoFileUpload = require('mongo_file_upload')
-
-console.log('hello warld')
-```
-
-outputs
-
-```
-hello warld
-```
 
 ## API
 
-```js
-var mongoFileUpload = require('mongo_file_upload')
-```
-
-See [api_formatting.md](api_formatting.md) for tips.
-
 ## Install
 
-With [npm](https://npmjs.org/) installed, run
+With [yarn](https://yarnpkg.com/en/) installed, run
 
 ```
-$ npm install mongo_file_upload
+$ yarn install || yarn
+$ yarn start
 ```
-
-## Acknowledgments
-
-mongo_file_upload was inspired by..
-
-## See Also
-
-- [`noffle/common-readme`](https://github.com/noffle/common-readme)
-- ...
 
 ## License
 
