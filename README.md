@@ -5,8 +5,6 @@
 This is an example application to show you how to upload images or other other file format files to mongodb database.
 
 
-## API
-
 ## Install
 
 With [yarn](https://yarnpkg.com/en/) installed, run
