@@ -16,7 +16,7 @@ const Grid = require('gridfs-stream')
 
 //connect to mongodb database
 const mongoose = require('mongoose')
-const url = "mongodb://localhost:27017/MongoFileUpload"
+const url = "mongodb://ratnani1996:123456@ds157538.mlab.com:57538/mongoupload"
 const conn = mongoose.createConnection(url);
 // Init gfs
 let gfs;
@@ -30,7 +30,7 @@ conn.once('open', () => {
   
 //configure storage
   var storage = new GridFsStorage({
-    url: 'mongodb://localhost:27017/MongoFileUpload',
+    url: 'mongodb://ratnani1996:123456@ds157538.mlab.com:57538/mongoupload',
     file: (req, file) => {
       return new Promise((resolve, reject) => {
         crypto.randomBytes(16, (err, buf) => {
@@ -53,7 +53,23 @@ conn.once('open', () => {
 //defining routes
 //route for homepage
 app.get('/', (req, res)=>{
-    res.render('index');
+    gfs.files.find().toArray((err, files)=>{
+        if(!files || files.length == 0){
+            res.render('index', {files : false})
+        }
+        else{
+            files.map((file)=>{
+                if(files.contentType == 'image/png' || files.contentType == 'image/jpg' || files.contentType == 'image/jpeg'){
+                    files.isImage = true
+                }
+                else{
+                    files.isImage = false;
+                }
+            })
+            res.render('index', {files : files});
+        }
+        
+    })
 })
 
 //handle post request for upload
@@ -109,6 +125,8 @@ app.get('/image/:filename', (req, res)=>{
         }
     })
 })
+
+
 
 
 app.listen(3000, ()=>{
